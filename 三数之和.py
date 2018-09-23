@@ -4,6 +4,9 @@ Created on Sat Sep 22 21:53:33 2018
 
 @author: Administrator
 """
+"""
+时间超过限制
+"""
 
 nums = [0,2,2,3,0,1,2,3,-1,-4,2]
 temp = [0,2,2,3,0,1,2,3,-1,-4,2]    
@@ -20,7 +23,8 @@ for target in nums:
                  a.append(temp1)
          else:
              dic[value] = index
- """
+"""
+
     b = a
 
 b.remove(2)
