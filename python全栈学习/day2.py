@@ -5,7 +5,8 @@ Created on Mon Nov 13 09:38:04 2018
 @author: 李鹏程
 """
 # import time 导入时间包
-
+from collections import Iterable
+from collections import Iterator
 
 timeStr = "11:11:11"
 
@@ -53,9 +54,146 @@ set 类似dict，是一组key集合，不存储value
 # 创建
 # 创建set需要一个list或者tuple,dict作为输入集合
 
-s1 = set([1,2,3,4,3])
+s1 = {1, 2, 3, 4, 3}
+
+# 不能存不能作为key的值（可变的不能作为key，例如list是可变的，元组可以作为key），可以添加重复的但是不会有效果
 
 print(s1)
+s5 = {1, 2, 3, 4}
+
+s5.add(9)
+
+# s5.add([1, 3])
+# update()方法可以将数组插入，建数组打碎后插入
+s5.update([3, 5, 6])
+print (s5)
+
+# 删除
+s6 = {1, 2, 3, 4}
+s6.remove(2)
+print (s6)
+
+# set是没有索引的。可以通过遍历从set中取值,过滤元素用，里面不会重复存储元素
+print("******************")
+for inx,val in enumerate(s6):
+    print(inx,val)
+
+s8 = {1, 2, 3}
+s9 = {2, 3, 4}
+
+s10 = s8 & s9
+
+s11 = s8 | s9
+
+print ("交集", s10)
+print ("并集", s11)
+
+# set ->list
+l9 = list(s9)
+t10 = tuple(s10)
+
+# 迭代器
+
+"""
+可迭代对象： 可以直接作用于For循环的对象统称为可迭代对象
+（iterable），we can use isinstance()to figure out sth if something is iterable
+1, collection data type : list tuple dict  set string
+2, generator , include generators or generator function with yield
+"""
+
+print(isinstance([], Iterable))
+print(isinstance((), Iterable))
+print(isinstance({}, Iterable))
+print (isinstance((x for x in range(10)),Iterable))
+"""
+Iterable: not only use in the for loop,but also can called by next() and return the next value.at last 
+it will raise a error type StopIteration
+
+iterator : a object than can Called by function next() and return next value
+we can use isinstance()to figure out  if something is iterator
+"""
 
 
+print(isinstance([], Iterator))
+print(isinstance((), Iterator))
+print(isinstance({}, Iterator))
+print (isinstance((x for x in range(10)), Iterator))
 
+l = (x for x in range(10))
+
+print (type(l))
+
+# translate sth to iterator
+l3 = [1, 23, 4, 5]
+iter1 = iter(l3)
+
+print("******************")
+
+
+def myprint():
+    """
+    :return: no return
+    """
+    print("this is a function with no parameter")
+
+
+"""
+format: name(parameters)
+name: when you want use the function , you should type it's name
+parameters: the function user translate the information to function
+
+the nature of the function is the process that Arguments  parameters  parameter
+"""
+
+
+# must Enter parameters in order
+# return value
+
+def sum1(num1, num2):
+    return num1 + num2
+
+# give the result to function caller
+# when function Execution return statement ,the function is end
+
+
+sum1 = sum1(1, 2)
+print(sum1)
+
+
+"""Passing parameters
+1: passing value:passing sth that is unchangable type
+"""
+
+
+def func1(num1):
+    num1 = 10
+
+
+temp = 20
+func1(temp)
+print(temp)
+
+"""
+2: Reference pass:passing changeable type
+
+"""
+
+
+def func2(list1):
+    list1[0] = 100
+
+
+list2 = [1, 2, 3]
+func2(list2)
+print(list2)
+
+# a stroge the address of 10
+a = 10
+b = 10
+print(id(a), id(b))
+a = a + 10
+print(id(a), id(b))
+
+
+# Keyword arguments allow us don't need to enter arguments in order
+# use Keyword arguments
