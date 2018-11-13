@@ -1,0 +1,28 @@
+# -*- coding: utf-8 -*-
+
+import re
+
+str1= """sunck is good man,sunck is good man sunck is good man
+sunck is bad man,sunck is ok man,sunck is sun man,sunck is beautiful man
+"""
+
+w = "good"
+
+# dict1.items返回的是一个元组
+# re模块的split可以进行多次切分
+
+list1 = str1.split(" "or ",")
+list2 = re.split('[,\n ]', str1)
+dict1 = {}
+
+# None的比较要用is
+for s in list2:
+    if dict1.get(s) is None:
+        dict1[s] = 1
+    else:
+        dict1[s] = dict1[s] + 1
+
+for key, value in dict1.items():
+    print(key, value)
+
+print(str1.count("man"))
