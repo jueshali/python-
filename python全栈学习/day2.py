@@ -187,7 +187,7 @@ list2 = [1, 2, 3]
 func2(list2)
 print(list2)
 
-# a stroge the address of 10
+# a storage the address of 10
 a = 10
 b = 10
 print(id(a), id(b))
@@ -197,3 +197,64 @@ print(id(a), id(b))
 
 # Keyword arguments allow us don't need to enter arguments in order
 # use Keyword arguments
+
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Nov 13 09:38:04 2018
+
+@author: 李鹏程
+"""
+import operator
+# default parameter: when yon call a function ,if you don't set any parameter ,the function use default parameter
+# it's better to use default parameter in the last location
+
+
+def my_print(str1 = "I can do ", str2 = "it"):
+    print(str1,str2)
+
+
+# Indefinite length parameter: deal more parameter than  the number of function initial defined
+
+# the parameter with * can store all the unnamed arguments. the parameter with * is a tuple type
+
+
+def func(name, *arr):
+    print(name)
+    for x in arr:
+        print(x)
+
+# key word parameter ,store in a dict type, and when you call this function ,you should in a key parameter way(like x=1)
+
+
+def my_sum(*num):
+    sum1 = 0
+    for i in num:
+        sum1 = sum1 + i
+    return sum1
+
+
+def func2(**kwargs):
+    print(kwargs)
+    print(type(kwargs))
+
+
+def func3(*args,**kwargs):
+    pass
+
+
+"""
+# anonymous functions: define a function without using "def" ,but use lambda
+
+feature:
+1、it's a expression ,simple than def way
+2、it's body is a expression ,not a code block,
+3、lambda has namespace just belong to itself and it can't use the parameter in a casual way.
+
+format: lambda arguments1,arguments2,..:expression
+"""
+
+
+# use the function in operator to replace lambda
+
+
+operator.add(5, 6)
