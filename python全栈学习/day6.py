@@ -7,6 +7,7 @@ Created on  Nov 14 09:38:04 2018
 import collections
 import os
 import time
+import datetime
 
 
 # use a list to simulate a stack
@@ -33,10 +34,10 @@ print(queue.pop())
 
 
 # check dir recursive
-Path = r"C:\Users\Administrator\Desktop\study\python学习"
+Path = r"C:\Users\Administrator\Desktop\study"
 
 
-def get_file(path, list1=[]):
+def get_file(path, list1=list()):
     fileslist = os.listdir(path)
     for filename in fileslist:
         temp = os.path.join(path, filename)
@@ -116,9 +117,38 @@ print(m)
 
 # 将时间元组转换为字符串
 
+s = time.asctime(b)
+print(s)
+
+# 将时间戳转换为字符串
+
+p = time.ctime(c)
+print(p)
+
+# 转换为给定格式得字符串
+
+q = time.strftime("%Y-%m-%d", b)
+print(q)
 
 
+# 将时间字符串转换为元组
+q1 = time.strptime(q, "%Y-%m-%d")
+print(q1)
 
+# delay a time
+time.sleep(1)
+
+# return cpu time,从第二次开始计算时间,即第一个time.clock为0
+print(time.perf_counter())
+
+# datetime is more powerful than time,it's api is more Intuitive
+"""
+datetime  : with time and date together
+timedelta : about time span
+tzinfo: time zone
+time: just about time
+date: just about date
+"""
 
 
 
